@@ -293,13 +293,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           bottom: TabBar(
             tabs: <Widget>[
               Text(
-                "Clock",
+                "Timer",
                 style: TextStyle(
                   color: Colors.orange,
                 ),
               ),
               Text(
-                "Timer",
+                "Clock",
                 style: TextStyle(
                   color: Colors.orange,
                 ),
@@ -318,8 +318,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         ),
         body: TabBarView(
           children: <Widget>[
-            clock(),
             timer(),
+            clock(),
           ],
           controller: tb,
         ),
