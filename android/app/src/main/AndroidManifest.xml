@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pk.clock">
+    package="com.example.timer">
    <application
         android:label="CLOCK"
         android:name="${applicationName}"

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timer/view/clock.dart';
+import 'package:timer/view/splash.dart';
 import 'package:timer/view/timer.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: HomePage(),
+      home: Splash(),
     );
   }
 }
