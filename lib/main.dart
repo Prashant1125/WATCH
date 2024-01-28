@@ -4,7 +4,7 @@ import 'package:timer/view/splash.dart';
 import 'package:timer/view/timer.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: Splash(),
+      home: const Splash(),
     );
   }
 }
@@ -33,7 +33,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   TabController? tb;
 
-  @override
   void initstate() {
     tb = TabController(length: 2, vsync: this);
     super.initState();
@@ -47,7 +46,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         backgroundColor: Colors.black,
         appBar: AppBar(
           backgroundColor: Colors.black,
-          title: Text(
+          title: const Text(
             "WATCH",
             style: TextStyle(
                 fontSize: 20.0,
@@ -56,7 +55,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
           centerTitle: true,
           bottom: TabBar(
-            tabs: <Widget>[
+            tabs: const <Widget>[
               Text(
                 "Timer",
                 style: TextStyle(
@@ -70,11 +69,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ),
             ],
-            labelStyle: TextStyle(
+            labelStyle: const TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.w600,
             ),
-            labelPadding: EdgeInsets.only(
+            labelPadding: const EdgeInsets.only(
               bottom: 10.0,
             ),
             unselectedLabelColor: Colors.black54,
@@ -82,11 +81,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
         ),
         body: TabBarView(
-          children: <Widget>[
+          controller: tb,
+          children: const <Widget>[
             Timer1(),
             Clock(),
           ],
-          controller: tb,
         ),
       ),
     );

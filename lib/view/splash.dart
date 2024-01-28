@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:timer/main.dart';
 
 class Splash extends StatefulWidget {
@@ -13,9 +12,9 @@ class Splash extends StatefulWidget {
 class _SplashState extends State<Splash> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 2)).whenComplete(
+    Future.delayed(const Duration(seconds: 2)).whenComplete(
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (context) => HomePage(),
+              builder: (context) => const HomePage(),
             )));
     super.initState();
   }

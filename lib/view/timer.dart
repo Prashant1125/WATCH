@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
-import 'package:timer/main.dart';
 
 class Timer1 extends StatefulWidget {
   const Timer1({super.key});
@@ -20,7 +19,7 @@ class _Timer1State extends State<Timer1> {
   bool stopped = true;
   int? timefortimer;
   bool cenceltimer = false;
-  final dur = Duration(seconds: 1);
+  final dur = const Duration(seconds: 1);
   Timer? timer;
 
   void start() {
@@ -45,10 +44,9 @@ class _Timer1State extends State<Timer1> {
           timetodisplay = timefortimer.toString();
           timefortimer = timefortimer! - 1;
         } else if (timefortimer! < 3600) {
-          int h = timefortimer! ~/ 3600;
           int m = timefortimer! ~/ 60;
           int s = timefortimer! - (60 * m);
-          timetodisplay = m.toString() + ":" + s.toString();
+          timetodisplay = "$m:$s";
           timefortimer = timefortimer! - 1;
         } else {
           int h = timefortimer! ~/ 3600;
@@ -56,8 +54,7 @@ class _Timer1State extends State<Timer1> {
           int m = t ~/ 60;
           int s = t - (60 * m);
 
-          timetodisplay =
-              h.toString() + ":" + m.toString() + ":" + s.toString();
+          timetodisplay = "$h:$m:$s";
           timefortimer = timefortimer! - 1;
         }
       });
@@ -92,7 +89,7 @@ class _Timer1State extends State<Timer1> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(
                           bottom: 10.0,
                         ),
@@ -120,7 +117,7 @@ class _Timer1State extends State<Timer1> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(
                           bottom: 10.0,
                         ),
@@ -148,7 +145,7 @@ class _Timer1State extends State<Timer1> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(
                           bottom: 10.0,
                         ),
@@ -179,7 +176,7 @@ class _Timer1State extends State<Timer1> {
             flex: 0,
             child: Text(
               timetodisplay,
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 50.0,
                   fontWeight: FontWeight.w400,
                   color: Colors.green),
@@ -192,7 +189,11 @@ class _Timer1State extends State<Timer1> {
               children: <Widget>[
                 ElevatedButton(
                   onPressed: started ? start : null,
-                  child: Text(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12.0, horizontal: 30.0),
+                  ),
+                  child: const Text(
                     "START",
                     style: TextStyle(
                       fontSize: 20.0,
@@ -200,24 +201,20 @@ class _Timer1State extends State<Timer1> {
                       color: Colors.green,
                     ),
                   ),
-                  style: ElevatedButton.styleFrom(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 12.0, horizontal: 30.0),
-                  ),
                 ),
                 ElevatedButton(
                   onPressed: stopped ? null : stop,
-                  child: Text(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 12.0, horizontal: 30.0),
+                  ),
+                  child: const Text(
                     "STOP",
                     style: TextStyle(
                       fontSize: 20.0,
                       fontWeight: FontWeight.w700,
                       color: Colors.green,
                     ),
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 12.0, horizontal: 30.0),
                   ),
                 ),
               ],
